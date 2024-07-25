@@ -6,5 +6,7 @@ export default function AddProductButton() {
   formData.append("product", `product-%${crypto.randomUUID()}`)
   formData.append("price", "126")
 
-  return <button onClick={() => addProduct(formData)}>Add random</button>
+  return (
+    <button onClick={() => addProduct({ message: "" }, formData)}>Add random</button>
+  )
 }

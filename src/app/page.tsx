@@ -1,14 +1,8 @@
-import { addProduct } from "@/actions/products"
 import { url } from "@/config"
 import { Product } from "@/types"
 import AddProductButton from "./components/AddProductButton"
-import AddProductButtonAnimation from "./components/AddProductButtonAnimation"
-import { useFormStatus } from "react-dom"
-import { SubmitButton } from "./components/SubmitButton"
-
-const satte = {
-  message: ""
-}
+import Form from "./components/Form"
+import FormDelete from "./components/FormDelete"
 
 export default async function Home() {
   const res = await fetch(url, {
@@ -26,19 +20,13 @@ export default async function Home() {
       <h1>Product warehouse</h1>
 
       <div>
-        <AddProductButtonAnimation /> / <AddProductButton />
+        {/* <AddProductButtonAnimation />  */}
+        / <AddProductButton />
       </div>
 
       <hr />
 
-      <form action={addProduct}>
-        {["product", "price"].map((name) => (
-          <div key={name}>
-            <input name={name} placeholder={name} />
-          </div>
-        ))}
-        <SubmitButton />
-      </form>
+      <Form />
 
       <h2>List of products</h2>
 
@@ -47,6 +35,7 @@ export default async function Home() {
           <div key={product.id}>
             <h3>{product.product}</h3>
             <p>{product.price}</p>
+            <FormDelete id={product.id || ""} />
           </div>
         ))}
       </div>

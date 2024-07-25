@@ -11,7 +11,9 @@ export default function AddProductButtonAnimation() {
   formData.append("price", "126")
 
   return (
-    <button onClick={() => startTransition(() => addProduct(formData))}>
+    <button
+      onClick={() => startTransition(() => addProduct({ message: "" }, formData))}
+    >
       {isPending ? "pending..." : "(Animation) Add random "}
     </button>
   )
