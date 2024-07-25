@@ -3,6 +3,7 @@ import { Product } from "@/types"
 import AddProductButton from "./components/AddProductButton"
 import Form from "./components/Form"
 import FormDelete from "./components/FormDelete"
+import Link from "next/link"
 
 export default async function Home() {
   const res = await fetch(url, {
@@ -18,6 +19,8 @@ export default async function Home() {
   return (
     <main>
       <h1>Product warehouse</h1>
+
+      <Link href="/about">Home</Link>
 
       <div>
         {/* <AddProductButtonAnimation />  */}

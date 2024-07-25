@@ -54,6 +54,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
+  height: 100vh;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -62,10 +63,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 .products {
   display: grid;
