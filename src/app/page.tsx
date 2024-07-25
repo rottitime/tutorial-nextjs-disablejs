@@ -1,9 +1,14 @@
 import { addProduct } from "@/actions/products"
-
 import { url } from "@/config"
 import { Product } from "@/types"
 import AddProductButton from "./components/AddProductButton"
 import AddProductButtonAnimation from "./components/AddProductButtonAnimation"
+import { useFormStatus } from "react-dom"
+import { SubmitButton } from "./components/SubmitButton"
+
+const satte = {
+  message: ""
+}
 
 export default async function Home() {
   const res = await fetch(url, {
@@ -32,7 +37,7 @@ export default async function Home() {
             <input name={name} placeholder={name} />
           </div>
         ))}
-        <button>Add product</button>
+        <SubmitButton />
       </form>
 
       <h2>List of products</h2>
