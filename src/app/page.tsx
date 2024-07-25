@@ -1,16 +1,17 @@
-import { addProduct } from '@/actions/products'
+import { addProduct } from "@/actions/products"
 
-import { url } from '@/config'
-import { Product } from '@/types'
-import AddProductButton from './components/AddProductButton'
+import { url } from "@/config"
+import { Product } from "@/types"
+import AddProductButton from "./components/AddProductButton"
+import AddProductButtonAnimation from "./components/AddProductButtonAnimation"
 
 export default async function Home() {
   const res = await fetch(url, {
-    cache: 'no-cache',
-    headers: { 'Content-Type': 'application/json' },
+    cache: "no-cache",
+    headers: { "Content-Type": "application/json" },
     next: {
-      tags: ['products'],
-    },
+      tags: ["products"]
+    }
   })
 
   const products: Product[] = await res.json()
@@ -19,11 +20,14 @@ export default async function Home() {
     <main>
       <h1>Product warehouse</h1>
 
-      {/* <AddProductButtonAnimation /> */}
-      <AddProductButton />
+      <div>
+        <AddProductButtonAnimation /> / <AddProductButton />
+      </div>
+
+      <hr />
 
       <form action={addProduct}>
-        {['product', 'price'].map((name) => (
+        {["product", "price"].map((name) => (
           <div key={name}>
             <input name={name} placeholder={name} />
           </div>
