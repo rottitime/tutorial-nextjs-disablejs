@@ -3,7 +3,7 @@
 import { addProduct } from '@/actions/products'
 import { useTransition } from 'react'
 
-export default function AddProductButton() {
+export default function AddProductButtonAnimation() {
   const [isPending, startTransition] = useTransition()
 
   const formData = new FormData()
@@ -12,7 +12,7 @@ export default function AddProductButton() {
 
   return (
     <button onClick={() => startTransition(() => addProduct(formData))}>
-      {isPending ? 'pending...' : 'Add product'}
+      {isPending ? 'pending...' : '(Animation) Add random '}
     </button>
   )
 }

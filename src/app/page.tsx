@@ -1,7 +1,8 @@
 import { addProduct } from '@/actions/products'
-import AddProductButton from '@/components/AddProductButton'
+
 import { url } from '@/config'
 import { Product } from '@/types'
+import AddProductButton from './components/AddProductButton'
 
 export default async function Home() {
   const res = await fetch(url, {
@@ -18,6 +19,7 @@ export default async function Home() {
     <main>
       <h1>Product warehouse</h1>
 
+      {/* <AddProductButtonAnimation /> */}
       <AddProductButton />
 
       <form action={addProduct}>
